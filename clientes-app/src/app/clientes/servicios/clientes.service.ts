@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Cliente, Grupo } from 'src/app/cliente.model';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -8,10 +8,11 @@ import { Subject } from 'rxjs';
 })
 export class ClientesService {
 
-  private clientes$ = new Subject<Cliente[]>();
-  private clientes: Cliente[];
+  
+  private clientes: Cliente[]=[];
   private grupos: Grupo[];
-
+  private clientes$ = new BehaviorSubject<Cliente[]>(this.clientes);
+  
   constructor() {
 
     this.clientes = [

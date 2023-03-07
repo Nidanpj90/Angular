@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cliente, Grupo } from 'src/app/cliente.model';
 import { ClientesService } from '../servicios/clientes.service';
 
@@ -13,7 +14,7 @@ export class AltaClienteComponent {
   cliente: Cliente;
   grupos: Grupo[];
 
-  constructor(private clientesService: ClientesService) { }
+  constructor(private router: Router,private clientesService: ClientesService) { }
 
   ngOnInit() {
     this.cliente = this.clientesService.nuevoCliente();
@@ -23,6 +24,7 @@ export class AltaClienteComponent {
   nuevoCliente(): void {
     this.clientesService.agregarCliente(this.cliente);
     this.cliente = this.clientesService.nuevoCliente();
+    this.router.navigate['/listado'];
   }
 
 }
