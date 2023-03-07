@@ -1,0 +1,13 @@
+<p>contenedor works!</p>
+<button (click)="clientes[0].cif='ESB9922'">Cambiar CIF</button>
+<app-presentador
+  [id]="clientes[0].id"
+  [nombre]="clientes[0].nombre"
+  [cif]="clientes[0].cif"
+  [direccion]="clientes[0].direccion"
+  [grupo]="clientes[0].grupo"
+  [cliente]="clientes[0]"
+  [clientes]="clientesService.clientes"
+  (propagar)="procesaPropagar($event)"
+></app-presentador>
+

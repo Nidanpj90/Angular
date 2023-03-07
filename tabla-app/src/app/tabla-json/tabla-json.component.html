@@ -1,0 +1,20 @@
+
+<label for="">JsonPlaceHolder</label><br>
+
+<select #idSelect (change)="cambiaDato(idSelect)">
+    <option value="users">users</option>
+    <option value="comments">comments</option>
+    <option value="albums">albums</option>
+    <option value="photos">photos</option>
+    <option value="todos">todos</option>
+</select>
+
+
+<table>
+    <tr>
+      <th *ngFor="let header of headers">{{ header }}</th>
+    </tr>
+    <tr *ngFor="let dato of datosTabla">
+      <td *ngFor="let header of headers">{{ dato[header] }}</td>
+    </tr>
+  </table>

@@ -1,0 +1,10 @@
+<ol>Listado de preguntas:
+    <li *ngFor="let pregunta of preguntasObj">
+        <ul>{{pregunta.pregunta}}
+            <li *ngFor="let prg of pregunta | keyvalue">
+                {{prg.key}}:{{prg.value}}
+                {{prg | json}}
+            </li>
+        </ul> 
+    </li>
+</ol>

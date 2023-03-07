@@ -1,0 +1,30 @@
+<p>{{title}}</p>
+<select (change)="onChange($event)">
+  <option>users</option>
+  <option>comments</option>
+  <option>albums</option>
+  <option>photos</option>
+  <option>todos</option>
+</select>
+<table>
+ <tr>
+   <th *ngFor="let usu of listaUsuarios[0] | keyvalue">
+     {{usu.key}}
+    </th>
+  
+ </tr> 
+ <tr *ngFor="let usuario of listaUsuarios">
+  
+  <td *ngFor="let prop of usuario | keyvalue">
+   
+    <span *ngIf="!esObjeto(prop.value)"> 
+         {{prop.value}}
+    </span>
+    <span *ngIf="esObjeto(prop.value)">
+      <app-tabla-objeto [objeto]="prop.value">
+      </app-tabla-objeto>
+    </span>
+  </td>
+ </tr>
+
+</table>

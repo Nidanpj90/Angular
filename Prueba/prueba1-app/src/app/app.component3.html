@@ -1,0 +1,25 @@
+<p>{{title}}</p>
+<table>
+ <tr>
+   <!--th *ngFor="let usu of listaUsuarios[0] | keyvalue">
+     {{usu.key}}
+    </th-->
+   <th *ngFor="let clave of clavesUsuarios">
+     {{clave}}
+    </th> 
+
+ </tr> 
+ <tr *ngFor="let usuario of listaUsuarios">
+  <td *ngFor="let clave of clavesUsuarios">
+    <span *ngIf="!esObjeto(usuario[clave])"><!--/span>; else listar-->
+         {{usuario[clave]}}
+    </span>
+    <!--span #listar-->
+    <span *ngIf="esObjeto(usuario[clave])">
+      <app-tabla-objeto [objeto]="usuario[clave]">
+      </app-tabla-objeto>
+    </span>
+  </td>
+ </tr>
+
+</table>

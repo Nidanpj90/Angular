@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th *ngFor="let prop of objeto | keyvalue">
+      {{prop.key}}
+     </th>
+ 
+  </tr>
+  <tr>
+    <td *ngFor="let prop of objeto | keyvalue">
+      
+      <!-- otro if  llamada recursiva-->
+      <span *ngIf="esObjeto(prop.value)">
+          <app-tabla-objeto [objeto]=prop.value></app-tabla-objeto>
+      </span>
+      <span *ngIf="!esObjeto(prop.value)">
+          {{prop.value}}
+      </span>
+    </td>
+  </tr> 
+</table>

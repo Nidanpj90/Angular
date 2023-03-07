@@ -1,0 +1,8 @@
+Del modelo a la vista:
+<input type="number" [ngModel]="lado">
+<br>
+Doble Bindeo (con Banana in Box): 
+<input type="number" [(ngModel)]="lado">
+<br>
+Doble Bindeo con property binding y event binding:
+<input type="number" [ngModel]="lado" (ngModelChange)="lado = $event">

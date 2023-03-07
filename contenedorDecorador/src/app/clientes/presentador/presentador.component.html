@@ -1,0 +1,37 @@
+<p>presentador works!</p>
+<p>
+    Nombre: {{nombre}}
+    <br>
+    Cif: {{cif}}
+    <br>
+    direccion: {{direccion}}
+  </p>
+  
+  <ul>Propiedades del cliente
+    
+    <li *ngFor="let prop of cliente | keyvalue">
+        {{prop.key}}:{{prop.value}}
+    </li>
+</ul>
+
+<table>
+    <tr>
+      <th *ngFor="let prop of clientes[0] | keyvalue">
+        {{prop.key}}
+       </th>
+   
+    </tr>
+    <tr *ngFor="let cli of clientes">
+       
+      <td *ngFor="let col of cli | keyvalue">
+          {{col.value}}
+       </td>
+       <td>
+        <!--button (click)="onPropagar($event)">Selecciona...</button-->
+        <button (click)="onPropagar(cli.id)">Selecciona...</button>
+       </td>
+    </tr>
+     
+  </table> 
+
+
