@@ -1,28 +1,32 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
-import { AltaClienteComponent } from './clientes/alta-cliente/alta-cliente.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientesModule } from './clientes/clientes.module';
+import { Routes, RouterModule } from '@angular/router';
+import { AltaClienteComponent } from './clientes/alta-cliente/alta-cliente.component';
 import { ListadoClientesComponent } from './clientes/listado-clientes/listado-clientes.component';
-
-export const rutas: Routes = [
-  { path: 'alta', component: AltaClienteComponent },
-  { path: 'listado', component: ListadoClientesComponent }
-];
+import { rutas } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
+  exports: [RouterModule],
   imports: [
-    BrowserModule,ClientesModule,RouterModule.forRoot(rutas)
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ClientesModule,
+    RouterModule.forRoot(rutas),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  
- }
-
+export class AppModule { }

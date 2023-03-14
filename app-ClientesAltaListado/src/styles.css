@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+   .fijo{ overflow: scroll;
+           height : 380px}/* Si el contenido del fieldset crece, se rompería*/
+   
+    fieldset{		padding-bottom:30px;
+			margin-bottom:20px;			
+			width: 50%;}
+	
+    	
+    label{ font:   bold medium fantasy }
+    
+    .rojo{border: 2px double red;}
+     
+    .nuevoForm label{display:block; padding:5px;}
+    .nuevoForm fieldset{ width: 93%}
+    .nuevoForm input{width:100%}
+     #divmiForm	{ 
+				box-sizing:border-box;
+				top:4em;
+				float:left;
+                width:40%; 
+				min-width:260px;
+				Margin-top:50px;
+				border:solid 2px brown;
+		        background-color:#9FF}
+			  
+    .nuevoForm{ 
+                width:80%;
+                padding:20px;
+                margin:30px auto;
+                backgroundColor:white;
+                border:1px solid black
+            }
+	#Contenedor{min-width:700px}
+	.nuevoForm input[type="reset"]{ background-color:red; color:white}
+	.nuevoForm .registro{Margin-top:20px; background-color:green; color:white}

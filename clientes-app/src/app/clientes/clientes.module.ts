@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AltaClienteComponent } from './alta-cliente/alta-cliente.component';
-import { ListadoClientesComponent } from './listado-clientes/listado-clientes.component';
 import { ClientesService } from './servicios/clientes.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListadoClientesComponent } from './listado-clientes/listado-clientes.component';
 
 
 
@@ -12,10 +12,17 @@ import { FormsModule } from '@angular/forms';
     AltaClienteComponent,
     ListadoClientesComponent
   ],
-  imports: [
-    CommonModule,FormsModule
+  exports:[
+    AltaClienteComponent,
+    ListadoClientesComponent
   ],
-  exports:[AltaClienteComponent,ListadoClientesComponent],
-  providers:[ClientesService]
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    ClientesService
+  ]
 })
 export class ClientesModule { }

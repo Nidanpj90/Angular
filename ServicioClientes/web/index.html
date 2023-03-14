@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Apliacion Clientes...</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <script>
+        
+        $(function(){
+            
+            $("#recupera").click(function(){
+                $.getJSON("RecuperaC",
+                            function(data, status){
+                            alert("Data: " +JSON.parse(data) + "\nStatus: " + status);
+                });
+            });    
+            
+           //Recupera..........
+       $("#guarda").click(function(){
+           $.post("GuardaC",
+                  /*"cliente="
+                  +JSON.stringify(*/
+                  {
+                    id:"21",  
+                    nombre: "Donald Duck",
+                    direccion: "Duckburg",
+                    nif:"11111111H",
+                    grupo:"1DAW"
+                    
+                  }/*)*/,
+                    function(data, status){
+                        alert("Data: " + data + "\nStatus: " + status);
+                    });
+        }); 
+            
+    })
+        
+   </script>
+        
+    </head>
+    <body>
+        
+        <input type="button" value="Recupera" id="recupera"  />
+        <input type="button" value="Guarda..." id="guarda"  />
+        
+        <form id="bt">
+         <fieldset><legend>Mantenimiento de Clientes...</legend>
+            <input type="button" value="Alta (Alt+A)" id="alta" onClick="altacli()"/>
+            <fieldset><legend>Listados de Clientes...</legend>
+                <input type="button" value="Listar (Alt+L)" id="lista"/><br>
+            </fieldset>
+         </fieldset>
+        </form>
+        
+        <div>Carga Clientes</div><!-- formulario de alta -------------------------------------------------------->
+    
+        <form id="frmcli">
+            <fieldset><legend>Formulario Alta de Clientes...</legend>
+            <div>
+            <p>Id.........:<input type="text" id="id" placeholder="Id?" name="id" 
+                            required/></p>
+            <p>Nombre.....:<input type="text" id="nomcli" placeholder="Nombre?" name="nombre"
+            pattern="^[A-Z].{3,}" required title="Mayuscula + 3 car" /></p>
+                       
+            <p> <br />
+            NIF:<input type="text" id="nie" placeholder="NIE" name ="nie" 
+                            pattern="^[0-9]{8}[-]?[A-Z]$" required title="8 numeros y una letra"/></p>
+            
+            <p>Direccion<input type="text" id="apecli" placeholder="Direccion?" name="Direccion" 
+                            required/></p>
+                   
+            <select  name="grupo" id="grupo">
+            <option value=0>ELIJA UN Grupo</option>
+            <option value="1ºDAW">1ºDAW</option>
+            <option value="2ºDAW">2ºDAW</option>
+            </select>
+            <input type="submit" value="Guardar (Ctrl+G)" id="gcli"  />
+            <input type="reset" value="Cancelar (Ctrl+C)" id="ccli" />
+            <br />
+            </div>   
+           </fieldset>  
+         </form> 
+        
+    </body>
+</html>

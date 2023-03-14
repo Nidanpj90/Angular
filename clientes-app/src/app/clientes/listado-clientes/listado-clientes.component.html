@@ -1,11 +1,17 @@
-<h2>Listado clientes</h2>
-  <div *ngIf="! clientes.length">No hay clientes por el momento</div>
+<h2>
+    Listado clientes
+  </h2>
   <div>
+    <article>
+        <span><b>Nombre</b></span>
+        <span><b>Cif</b></span>
+        <span><b>Dirección</b></span>
+        <span><b>Grupo</b></span>
+    </article>
     <article *ngFor="let cliente of clientes">
       <span>{{cliente.nombre}}</span>
       <span>{{cliente.cif}}</span>
       <span>{{cliente.direccion}}</span>
       <span>{{cliente.grupo}}</span>
-      <a href="#" routerLink="/alta"><span>Modificar</span></a>
     </article>
   </div>

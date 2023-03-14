@@ -1,0 +1,56 @@
+<h2>Alta cliente</h2>
+<div id="divmiForm">
+<form [formGroup]="miForm" (ngSubmit)="onSubmit()"
+class="nuevoForm">
+  <label for="nombre">Nombre</label>
+  <input name="nombre"
+        formControlName="nombre"
+        type="text" /><br>
+  <label for="nif">nif</label>
+  <input name="nif"
+        formControlName="nif"
+        type="text" /><br>
+  <label for="direccion">direccion</label>
+  <input name="direccion"
+        formControlName="direccion"
+        type="text" /><br>
+  <label for="grupo">grupo</label>
+  <select name="grupo"
+        formControlName="grupo">
+        <option *ngFor="let grupo of grupos" value="{{grupo.nombre}}">{{grupo.nombre}}</option>
+  </select><br>
+
+  <button (click)="register()" class="registro"
+    [disabled]="miForm.invalid">Register me!</button>
+    <br>
+
+  </form>
+    Form value: {{ miForm.value | json }}
+    <p>Form status: {{ miForm.status | json }}</p>
+    <span>Errores nif: {{ miForm.get('cif').errors | json}}</span>
+</div>
+
+
+
+
+<!--p>
+  <span>Nombre:</span>
+  <input type="text" [(ngModel)]="cliente.nombre">
+</p>
+<p>
+  <span>CIF:</span>
+  <input type="text" [(ngModel)]="cliente.cif">
+</p>
+<p>
+  <span>Dirección:</span>
+  <input type="text" [(ngModel)]="cliente.direccion">
+</p>
+<p>
+  <span>Grupo:</span>
+  <select [(ngModel)]="cliente.grupo">
+    <option *ngFor="let grupo of grupos" value="{{grupo.nombre}}">{{grupo.nombre}}</option>
+  </select>
+</p>
+<p>
+  <button (click)="this.nuevoCliente()">Guardar</button>
+</p-->
