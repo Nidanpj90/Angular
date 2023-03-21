@@ -1,0 +1,15 @@
+<p>listado-provincias works!</p>
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let colum of getKeys(provincias[0])">{{colum | titlecase}}</th>
+            <th>Operaciones</th>
+        </tr>
+    </thead>
+    <thead>
+        <tr *ngFor="let prov of provincias">
+            <td *ngFor="let dato of getKeys(prov)">{{prov[dato]}}</td>
+            <td><a routerLink="/ListadoPueblos/{{prov|json}}">Ver pueblos</a></td>
+        </tr>
+    </thead>
+</table>
