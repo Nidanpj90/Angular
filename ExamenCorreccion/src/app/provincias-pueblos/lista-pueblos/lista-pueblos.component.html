@@ -1,0 +1,14 @@
+<a routerLink="/Provincias/listaProvincias" routerLinkActive="activo">Volver...</a> | <button (click)="volver">Volver</button>
+<h1>Lista de pueblos de :{{nombreProv}}</h1>
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let propiedad of pueblos[0] | keyvalue">{{propiedad.key}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pueblo of pueblos">
+            <td *ngFor="let propiedad of pueblo | keyvalue">{{propiedad.value}}</td>
+        </tr>
+    </tbody>
+</table> 

@@ -2,16 +2,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListaProvinciasComponent } from './lista-provincias/lista-provincias.component';
 import { ServicioPvPbService } from './Servicios/servicio-pv-pb.service';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { ListaPueblosComponent } from './lista-pueblos/lista-pueblos.component';
+import { AppRoutingModule } from '../Rutas/app-routing.module';
+
+
 
 @NgModule({
   declarations: [
-    ListaProvinciasComponent
+    ListaProvinciasComponent,
+    ListaPueblosComponent,
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
+    
   ],
-  providers: [ServicioPvPbService]
+  providers: [
+    ServicioPvPbService
+  ]
 })
 export class ProvinciasPueblosModule { }

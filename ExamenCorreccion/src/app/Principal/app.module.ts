@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ProvinciasPueblosModule } from '../provincias-pueblos/provincias-pueblos.module';
 
 import { AppRoutingModule } from '../Rutas/app-routing.module';
 import { AppComponent } from './ComponentePrincipal/app.component';
+
 
 @NgModule({
   declarations: [
@@ -10,7 +12,8 @@ import { AppComponent } from './ComponentePrincipal/app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProvinciasPueblosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

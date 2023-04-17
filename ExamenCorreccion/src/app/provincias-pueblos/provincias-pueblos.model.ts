@@ -1,17 +1,18 @@
-export interface Provincia {
-    idprovincia: number;
-    provincia: string;
+export interface Provincias{
+    Abreviatura : string;
+    comunidad   : string;
+    idprovincia : number;
+    provincia  : string;
     provinciaseo: string;
-    abreviatura: string;
-    comunidad: string;
-  }
-  
-  export interface Pueblo {
-    idpoblacion: number;
-    idprovincia: number;
-    poblacion: string;
-    poblacionseo: string;
-    postal: number;
-    latitud: number;
-    longitud: number;
-  }
+
+}
+
+export interface Pueblos{
+    postal      : number;
+    poblacion   : string;
+    idprovincia : number;
+    idpueblo    : number;
+    latitud     : number;
+    longitud    : number;
+
+}

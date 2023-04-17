@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Provincia } from '../provincias-pueblos.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicioPvPbService {
 
-  provincias: Provincia[] = [];
-
   constructor(private http: HttpClient) { }
 
   getProvincias(){
-    return this.http.get('..\\..\assets\\provincias.json');
+    return this.http.get("http://192.168.0.111:8080/ExamenAngular/ProvPueblos");
+  }
+  getPueblos(aux:String){
+    return this.http.get("http://192.168.0.111:8080/ExamenAngular/ProvPueblos?provincia="+aux);
   }
 }
