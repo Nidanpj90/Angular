@@ -9,6 +9,7 @@
     <tbody>
         <tr *ngFor="let pueblo of pueblos">
             <td *ngFor="let propiedad of pueblo | keyvalue">{{propiedad.value}}</td>
+            <td><a routerLink="/Pueblos/editaPueblos/{{pueblo}}" routerLinkActive="activo">Editar</a></td>
         </tr>
     </tbody>
 </table> 

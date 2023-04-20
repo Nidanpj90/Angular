@@ -7,8 +7,7 @@
     <tbody>
         <tr *ngFor="let provincia of provincias">
             <td *ngFor="let propiedad of provincia | keyvalue">{{propiedad.value}}</td>
-            <td><a routerLink="/Pueblos/listaPueblos/{{provincia.idprovincia}}" routerLinkActive="activo">Ver pueblos</a></td>
-            <td><a routerLink="/Pueblos/listaPueblos/{{provincia.idprovincia}}" routerLinkActive="activo">Editar</a></td>
+            <td><a routerLink="/Pueblos/listaPueblos/{{provincia.idprovincia}}" routerLinkActive="activo">Ver pueblos</a></td>           
         </tr>
     </tbody>
 </table>
