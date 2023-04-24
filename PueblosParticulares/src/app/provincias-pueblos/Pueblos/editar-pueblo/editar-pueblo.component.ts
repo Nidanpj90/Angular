@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Pueblo } from '../../provincias-pueblos.model';
 import { ServicioPvPbService } from '../../Servicios/servicio-pv-pb.service';
@@ -24,12 +24,27 @@ export class EditarPuebloComponent implements OnInit {
 
   creaFormulario(pueblo: Pueblo){
     this.formulario = this.fb.group({
-      idprovincia : [pueblo.idprovincia, [Validators.required, Validators.maxLength(2),]],
-      poblacion : [pueblo.poblacion, [Validators.required, Validators.minLength(3), Validators.pattern(/^[A-Z][a-z]*/)]],
+      idprovincia : [pueblo.idprovincia, [Validators.required, Validators.maxLength(2)]],
+      poblacion : [pueblo.poblacion, [Validators.required, Validators.minLength(3), Validators.pattern(/^[A-Z][/w]*/), this.poblacionM]],
       postal : [pueblo.postal, [Validators.required]],
       latitud : [pueblo.latitud, [Validators.required]],
       longitud : [pueblo.longitud, [Validators.required]]
 
     })
+  }
+
+  public poblacionM(campo :AbstractControl):Validators | null{
+    const valor = campo.value;
+    let error = null;
+
+    if(!valor.match(/^[A-Z][/w]*/)){
+      error = {EmpiezaMay:"Debe empezar por letra mayúscula"}
+    }
+
+    return error;
+  }
+
+  guardaPueblo(){
+    console.log("Pueblo guardado");
   }
 }

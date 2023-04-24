@@ -1,7 +1,28 @@
-<form [formGroup]="formulario">
+<form [formGroup]="formulario" (ngSubmit)="guardaPueblo()">
     <input name="idprovincia" formControlName="idprovincia" type="number">
+        <span *ngFor="let error of formulario.controls['idprovincia'].errors | keyvalue">
+            <div>{{error.key}} : {{error.value}}.</div>
+        </span>
     <input name="poblacion" formControlName="poblacion" type="text">
+        <span *ngIf="formulario.controls['poblacion'].errors | keyvalue">
+            <span *ngFor="let error of formulario.controls['poblacion'].errors | keyvalue">
+                <div>{{error.key}} : {{error.value}}.</div>
+            </span>
+        </span>
     <input name="postal" formControlName="postal" type="text">
+        <span *ngIf="formulario.controls['postal'].errors.required">
+            El código postal es obligatorio.
+        </span>
     <input name="latitud" formControlName="latitud" type="text">
+        <span *ngIf="formulario.controls['latitud'].errors.required">
+            La latitud es obligatoria.
+        </span>
     <input name="longitud" formControlName="longitud" type="text">
+        <span *ngIf="formulario.controls['longitud'].errors.required">
+            La longitud es obligatoria.
+        </span>
+
+    <input type="submit" value="Editar Pueblo"
+    [disabled] = "formulario.invalid">
+    <button type="reset" (click)="onReset()">Cancelar</button>
 </form>

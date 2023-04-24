@@ -11,8 +11,7 @@ export interface Pueblo{
     postal      : number;
     poblacion   : string;
     idprovincia : number;
-    idpueblo    : number;
+    idpoblacion    : number;
     latitud     : number;
     longitud    : number;
-
 }
