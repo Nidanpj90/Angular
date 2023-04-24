@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ListaProvinciasComponent } from './lista-provincias/lista-provincias.component';
 import { ServicioPvPbService } from './Servicios/servicio-pv-pb.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ListaPueblosComponent } from './lista-pueblos/lista-pueblos.component';
+import { ListaPueblosComponent } from './pueblos/lista-pueblos/lista-pueblos.component';
 import { AppRoutingModule } from '../Rutas/app-routing.module';
+import { EditaPueblosComponent } from './pueblos/edita-pueblos/edita-pueblos.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,11 +14,13 @@ import { AppRoutingModule } from '../Rutas/app-routing.module';
   declarations: [
     ListaProvinciasComponent,
     ListaPueblosComponent,
+    EditaPueblosComponent,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
     
   ],
   providers: [

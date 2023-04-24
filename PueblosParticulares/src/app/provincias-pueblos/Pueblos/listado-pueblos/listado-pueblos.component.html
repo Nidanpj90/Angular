@@ -1,0 +1,13 @@
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let campo of (listadoPueblos[0] | keyvalue)">{{campo.key}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pueblo of listadoPueblos">
+            <td *ngFor="let campo of (pueblo | keyvalue)">{{campo.value}}</td>
+            <td><a routerLink="/Pueblos/editarPueblo/{{pueblo | json}}">Editar pueblo</a></td>
+        </tr>
+    </tbody>
+</table>

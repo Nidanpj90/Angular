@@ -1,0 +1,13 @@
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let campo of (listaProvincias[0] | keyvalue)">{{campo.key}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let provincia of listaProvincias">
+            <td *ngFor="let campo of (provincia | keyvalue)">{{campo.value}}</td>
+            <td><a routerLink="/Pueblos/listadoPueblos/{{provincia.idprovincia}}">Ver pueblos</a></td>
+        </tr>
+    </tbody>
+</table>

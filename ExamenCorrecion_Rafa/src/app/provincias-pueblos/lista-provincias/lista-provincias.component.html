@@ -1,0 +1,13 @@
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let propiedad of provincias[0] | keyvalue">{{propiedad.key}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let provincia of provincias">
+            <td *ngFor="let propiedad of provincia | keyvalue">{{propiedad.value}}</td>
+            <td><a routerLink="/Pueblos/listaPueblos/{{provincia.idprovincia}}/{{provincia.provinciaseo}}" routerLinkActive="activo">Ver pueblos</a></td>
+        </tr>
+    </tbody>
+</table>

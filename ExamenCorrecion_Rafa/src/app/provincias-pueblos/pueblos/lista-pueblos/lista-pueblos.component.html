@@ -1,5 +1,5 @@
-<a routerLink="/Provincias/listaProvincias" routerLinkActive="activo">Volver...</a> | <button (click)="volver">Volver</button>
-<h1>Lista de pueblos de :{{nombreProv}}</h1>
+<h1>Pueblos de {{nombreProv}}</h1>
+<button (click)="volver()">Volver ...</button>
 <table>
     <thead>
         <tr>
@@ -9,7 +9,9 @@
     <tbody>
         <tr *ngFor="let pueblo of pueblos">
             <td *ngFor="let propiedad of pueblo | keyvalue">{{propiedad.value}}</td>
-            <td><a routerLink="/Pueblos/editaPueblos/{{pueblo}}" routerLinkActive="activo">Editar</a></td>
+            <td>
+                <a routerLink="/Pueblos/editaPueblos/{{pueblo}}">Editar {{pueblo.poblacion}}</a>
+            </td>
         </tr>
     </tbody>
 </table> 

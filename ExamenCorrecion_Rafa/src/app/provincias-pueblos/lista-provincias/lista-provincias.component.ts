@@ -14,6 +14,14 @@ export class ListaProvinciasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.servicioProvincias.getProvincias()
+      .subscribe({
+        next: provincias => {
+          this.provincias = Object.values(provincias);
+          console.log(this.provincias);
+        },
+        error: error => { console.log(JSON.stringify(error)) },
+        complete: () => {console.log("Terminado")}
+      })
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ServicioPvPbService } from '../../Servicios/servicio-pv-pb.service';
 import { Pueblos } from '../../provincias-pueblos.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -10,27 +11,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EditaPueblosComponent implements OnInit{
 
-  formulario : FormGroup;
+  formulario: FormGroup;
 
-  constructor(private ruta :ActivatedRoute, private fb : FormBuilder){
+  constructor(
+    private rutaActiva: ActivatedRoute,
+    private servicioPueblos: ServicioPvPbService,
+    private fb: FormBuilder
+    ){}
 
-  }
-
-  ngOnInit(): void{
-    const pueblo = JSON.parse(this.ruta.snapshot.paramMap.get('pueblo'));
+  ngOnInit(): void {
+    const pueblo = this.rutaActiva.snapshot.params['pueblo'];
     this.creaFormulario(pueblo);
   }
 
-  creaFormulario(pueblo :Pueblos){
+  creaFormulario(pueblo: Pueblos):void{
     this.formulario = this.fb.group({
-      idPoblacion:[pueblo.idpueblo,[Validators.required]],
+      idpoblacion:[pueblo.idpueblo,[Validators.required]],
       poblacion:[pueblo.poblacion,[Validators.required]]
-    }
-    );
+
+  })
+
   }
 
-  volver():void{
-    //this.location.back();
-    window.history.back;
-  }
 }
